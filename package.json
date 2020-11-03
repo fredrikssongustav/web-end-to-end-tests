@@ -1,0 +1,14 @@
+{
+  "name": "web-end-to-end-tests",
+  "version": "1.0.0",
+  "description": "This repo is used for running e2e tests in kubernetes",
+  "main": "index.js",
+  "author": "Gustav Fredriksson <gustav.fredriksson@tink.se>",
+  "license": "MIT",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "dependencies": {
+    "cypress": "^5.5.0"
+  }
+}
