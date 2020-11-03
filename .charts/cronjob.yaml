@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: cypress-test
+              image: cypress-test-image:1.0.0
+              # We are pulling the image locally
+              imagePullPolicy: Never
+          restartPolicy: OnFailure
