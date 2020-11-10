@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: job
+  namespace: e2e-tests
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: test-runner
+              image: test-runner-image:1.0.0
+              env:
+                - name: PROMETHEUS_PUSHGATEWAY_URL
+                  value: "http://pushgateway.monitoring-prometheus:9091"
+              imagePullPolicy: Never
+          restartPolicy: OnFailure
