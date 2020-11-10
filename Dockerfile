@@ -1,8 +1,8 @@
-FROM cypress/included:4.1.0
+FROM cypress/base
 
-WORKDIR /app
+WORKDIR /.
 
-COPY ./cypress ./cypress
-COPY ./cypress.json ./cypress.json
+COPY . .
 
-RUN npx cypress run
+RUN yarn add prom-client
+CMD [ "npx", "cypress", "run" ]
